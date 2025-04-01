@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Jarvis AI</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron&display=swap');
+        
+        body {
+            background: linear-gradient(to right, #001f3f, #003366);
+            color: #00aaff;
+            font-family: 'Orbitron', sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            text-align: center;
+            overflow-x: hidden;
+            margin: 0;
+            padding: 80px 0;
+            transition: background 0.5s;
+        }
+        .dark-mode {
+            background: linear-gradient(to right, #000000, #222222);
+            color: #ffffff;
+        }
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            padding: 15px 50px;
+            background: rgba(0, 51, 102, 0.8);
+            box-shadow: 0px 4px 10px rgba(0, 170, 255, 0.3);
+            z-index: 100;
+        }
+        .menu a {
+            color: #00aaff;
+            text-decoration: none;
+            font-size: 18px;
+            font-family: 'Orbitron', sans-serif;
+            transition: 0.3s;
+            margin: 0 15px;
+        }
+        .menu a:hover {
+            color: #0088cc;
+        }
+        .container {
+            background: rgba(0, 0, 51, 0.8);
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0px 0px 20px #00aaff;
+            width: 80%;
+            max-width: 1000px;
+            backdrop-filter: blur(10px);
+            margin: 20px 0;
+            text-align: left;
+        }
+        h1 {
+            font-size: 42px;
+            text-shadow: 0 0 10px #00aaff;
+            margin-bottom: 30px;
+        }
+        h2 {
+            color: #00ccff;
+            border-bottom: 2px solid #00aaff;
+            padding-bottom: 10px;
+            margin: 30px 0 20px;
+        }
+        .feature-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin: 30px 0;
+        }
+        .feature-item {
+            background: rgba(0, 51, 102, 0.5);
+            padding: 20px;
+            border-radius: 10px;
+            border: 1px solid #00aaff;
+            transition: transform 0.3s;
+        }
+        .feature-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 0 15px #00aaff;
+        }
+        .feature-icon {
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+        .cta-button {
+            background: #00aaff;
+            border: none;
+            padding: 15px 40px;
+            font-size: 20px;
+            font-family: 'Orbitron', sans-serif;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: 0.3s;
+            text-transform: uppercase;
+            margin: 30px 0;
+            display: inline-block;
+        }
+        .cta-button:hover {
+            background: #0088cc;
+            box-shadow: 0px 0px 15px #00aaff;
+        }
+        .highlight {
+            color: #00ffaa;
+            font-weight: bold;
+        }
+        .dark-mode-btn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 40px;
+            height: 40px;
+            background: #00aaff;
+            border-radius: 50%;
+            border: none;
+            cursor: pointer;
+            transition: 0.3s;
+            z-index: 100;
+        }
+        .dark-mode-btn:hover {
+            background: #0088cc;
+            box-shadow: 0 0 10px #00aaff;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <div class="menu">
+            <a href="Jarvis Webpage.html">Home</a>
+            <a href="about-me.html">About Me</a>
+            <a href="pricing.html">Pricing</a>
+        </div>
+    </div>
+
+    <div class="container">
+        <h1>About Jarvis AI</h1>
+        
+        <h2>What is Jarvis AI?</h2>
+        <p>Jarvis AI is a cutting-edge artificial intelligence assistant designed to revolutionize human-computer interaction. Inspired by the iconic AI from Iron Man, Jarvis is built to understand, respond, and assist users using advanced speech recognition and natural language processing.</p>
+
+        <h2>Our Mission</h2>
+        <p>Our goal is to create an intuitive AI that seamlessly integrates into daily life, making tasks simpler, faster, and more efficient. Whether it's transcribing voice commands, providing real-time information, or assisting with automation, Jarvis AI is designed to be your ultimate digital companion.</p>
+
+        <h2>Core Features</h2>
+        <div class="feature-list">
+            <div class="feature-item">
+                <div class="feature-icon">🎙</div>
+                <h3>Voice-to-Text AI</h3>
+                <p>Accurately converts speech into text for hands-free operation with <span class="highlight">98.7% accuracy</span>.</p>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon">🤖</div>
+                <h3>Conversational AI</h3>
+                <p>Engages in natural dialogues using <span class="highlight">GPT-4 level</span> language models.</p>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon">🌐</div>
+                <h3>Real-Time Updates</h3>
+                <p>Provides live information on weather, stocks, news, and <span class="highlight">50+ data sources</span>.</p>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon">⚙</div>
+                <h3>Custom Interface</h3>
+                <p>Personalize themes, workflows, and <span class="highlight">100+ settings</span> for your needs.</p>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon">🔗</div>
+                <h3>Smart Integrations</h3>
+                <p>Connects with <span class="highlight">5000+ apps</span> including Slack, Google Home, and Alexa.</p>
+            </div>
+        </div>
+
+        <h2>Why Choose Jarvis?</h2>
+        <p>Jarvis AI is built with <span class="highlight">speed, accuracy, and adaptability</span> at its core. Unlike traditional voice assistants, it evolves with user preferences, improving over time to provide a truly personalized experience through machine learning.</p>
+
+        <h2>Join the Future</h2>
+        <p>Step into tomorrow's technology today. Whether you're a tech enthusiast, business professional, or simply want a smarter digital life, Jarvis AI is ready to transform your interaction with technology.</p>
+        
+        <button class="cta-button" onclick="window.location.href='pricing.html'">Get Started Now</button>
+    </div>
+
+    <button class="dark-mode-btn" onclick="toggleDarkMode()"></button>
+
+    <script>
+        function toggleDarkMode() {
+            document.body.classList.toggle('dark-mode');
+        }
+    </script>
+</body>
+</html>

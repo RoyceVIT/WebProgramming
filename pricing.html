@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jarvis AI - Pricing</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron&display=swap');
+        
+        body {
+            background: linear-gradient(to right, #001f3f, #003366);
+            color: #00aaff;
+            font-family: 'Orbitron', sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            text-align: center;
+            overflow-x: hidden;
+            margin: 0;
+            padding: 80px 0;
+            transition: background 0.5s;
+        }
+        .dark-mode {
+            background: linear-gradient(to right, #000000, #222222);
+            color: #ffffff;
+        }
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            padding: 15px 50px;
+            background: rgba(0, 51, 102, 0.8);
+            box-shadow: 0px 4px 10px rgba(0, 170, 255, 0.3);
+            z-index: 100;
+        }
+        .menu a {
+            color: #00aaff;
+            text-decoration: none;
+            font-size: 18px;
+            font-family: 'Orbitron', sans-serif;
+            transition: 0.3s;
+            margin: 0 15px;
+        }
+        .menu a:hover {
+            color: #0088cc;
+        }
+        .pricing-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            width: 90%;
+            max-width: 1200px;
+            margin-top: 40px;
+        }
+        .pricing-tier {
+            background: rgba(0, 0, 51, 0.8);
+            border-radius: 15px;
+            box-shadow: 0px 0px 20px #00aaff;
+            padding: 30px;
+            width: 280px;
+            backdrop-filter: blur(10px);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .pricing-tier:hover {
+            transform: translateY(-10px);
+            box-shadow: 0px 0px 30px #00ccff;
+        }
+        .tier-header {
+            border-bottom: 2px solid #00aaff;
+            padding-bottom: 20px;
+            margin-bottom: 20px;
+        }
+        .tier-name {
+            font-size: 28px;
+            margin: 0 0 10px 0;
+            color: #00ccff;
+        }
+        .tier-price {
+            font-size: 36px;
+            margin: 0;
+        }
+        .tier-features {
+            text-align: left;
+            margin-bottom: 30px;
+            min-height: 300px;
+        }
+        .tier-features ul {
+            padding-left: 20px;
+        }
+        .tier-features li {
+            margin-bottom: 10px;
+            line-height: 1.4;
+        }
+        .tier-button {
+            background: #00aaff;
+            border: none;
+            padding: 12px 25px;
+            font-size: 18px;
+            font-family: 'Orbitron', sans-serif;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: 0.3s;
+            text-transform: uppercase;
+            width: 100%;
+            color: #001f3f;
+            font-weight: bold;
+        }
+        .tier-button:hover {
+            background: #0088cc;
+            box-shadow: 0px 0px 15px #00aaff;
+        }
+        .enterprise-button {
+            background: #00ffaa;
+        }
+        .enterprise-button:hover {
+            background: #00cc88;
+            box-shadow: 0px 0px 15px #00ffaa;
+        }
+        .page-title {
+            font-size: 42px;
+            margin-bottom: 10px;
+            text-shadow: 0 0 10px #00aaff;
+        }
+        .page-subtitle {
+            font-size: 20px;
+            margin-bottom: 30px;
+            max-width: 800px;
+            line-height: 1.5;
+        }
+        .dark-mode-btn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 40px;
+            height: 40px;
+            background: #00aaff;
+            border-radius: 50%;
+            border: none;
+            cursor: pointer;
+            transition: 0.3s;
+            z-index: 100;
+        }
+        .dark-mode-btn:hover {
+            background: #0088cc;
+            box-shadow: 0 0 10px #00aaff;
+        }
+        .highlight {
+            background-color: rgba(0, 170, 255, 0.2);
+            padding: 2px 5px;
+            border-radius: 3px;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <div class="menu">
+            <a href="Jarvis Webpage.html">Home</a>
+            <a href="about-me.html">About Me</a>
+            <a href="pricing.html">Pricing</a>
+        </div>
+    </div>
+
+    <h1 class="page-title">Jarvis AI Pricing Plans</h1>
+    <p class="page-subtitle">Choose the perfect plan for your needs. All plans come with our industry-leading AI technology, with varying levels of access and features to suit every type of user.</p>
+
+    <div class="pricing-container">
+        <div class="pricing-tier">
+            <div class="tier-header">
+                <h2 class="tier-name">Free Tier</h2>
+                <p class="tier-price">$0</p>
+                <p>Basic Access</p>
+            </div>
+            <div class="tier-features">
+                <ul>
+                    <li><span class="highlight">Limited Access</span>: Basic interactions with daily/monthly limits</li>
+                    <li><span class="highlight">Basic Functionality</span>: Core features like simple voice-to-text</li>
+                    <li>Default interface with no advanced customization</li>
+                    <li>Community support via FAQs and forums</li>
+                </ul>
+            </div>
+            <button class="tier-button" onclick="window.location.href='signup.html?tier=free'">Get Started</button>
+        </div>
+
+        <div class="pricing-tier">
+            <div class="tier-header">
+                <h2 class="tier-name">Standard</h2>
+                <p class="tier-price">$9.99</p>
+                <p>per month</p>
+            </div>
+            <div class="tier-features">
+                <ul>
+                    <li><span class="highlight">Unlimited Interactions</span>: No daily/monthly limits</li>
+                    <li><span class="highlight">Basic Customization</span>: Personalize voice and responses</li>
+                    <li>Advanced voice recognition capabilities</li>
+                    <li>Priority email support</li>
+                    <li>Cross-device sync for preferences</li>
+                </ul>
+            </div>
+            <button class="tier-button" onclick="window.location.href='signup.html?tier=standard'">Choose Plan</button>
+        </div>
+
+        <div class="pricing-tier">
+            <div class="tier-header">
+                <h2 class="tier-name">Pro</h2>
+                <p class="tier-price">$29.99</p>
+                <p>per month</p>
+            </div>
+            <div class="tier-features">
+                <ul>
+                    <li><span class="highlight">Full Customization</span>: Voice, personality, and UI</li>
+                    <li><span class="highlight">Premium Features</span>: Deep context understanding</li>
+                    <li>Multi-language support</li>
+                    <li>API access for third-party integration</li>
+                    <li>Real-time data updates</li>
+                    <li>24/7 priority support</li>
+                </ul>
+            </div>
+            <button class="tier-button" onclick="window.location.href='signup.html?tier=pro'">Choose Plan</button>
+        </div>
+
+        <div class="pricing-tier">
+            <div class="tier-header">
+                <h2 class="tier-name">Enterprise</h2>
+                <p class="tier-price">Custom</p>
+                <p>tailored solution</p>
+            </div>
+            <div class="tier-features">
+                <ul>
+                    <li><span class="highlight">Full AI Integration</span>: With business systems</li>
+                    <li><span class="highlight">Customization at Scale</span>: Enterprise-wide solutions</li>
+                    <li>Team collaboration features</li>
+                    <li>Dedicated account manager</li>
+                    <li>Enterprise-grade security</li>
+                    <li>Advanced analytics and reporting</li>
+                    <li>Compliance with regulations</li>
+                </ul>
+            </div>
+            <button class="tier-button enterprise-button" onclick="window.location.href='contact.html'">Contact Sales</button>
+        </div>
+    </div>
+
+    <button class="dark-mode-btn" onclick="toggleDarkMode()"></button>
+
+    <script>
+        function toggleDarkMode() {
+            document.body.classList.toggle('dark-mode');
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Profile | Jarvis AI</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron&display=swap');
+        
+        body {
+            background: linear-gradient(to right, #001f3f, #003366);
+            color: #00aaff;
+            font-family: 'Orbitron', sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            text-align: center;
+            overflow-x: hidden;
+            margin: 0;
+            padding: 80px 0;
+            transition: background 0.5s;
+        }
+        .dark-mode {
+            background: linear-gradient(to right, #000000, #222222);
+            color: #ffffff;
+        }
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            padding: 15px 50px;
+            background: rgba(0, 51, 102, 0.8);
+            box-shadow: 0px 4px 10px rgba(0, 170, 255, 0.3);
+            z-index: 100;
+        }
+        .menu a {
+            color: #00aaff;
+            text-decoration: none;
+            font-size: 18px;
+            font-family: 'Orbitron', sans-serif;
+            transition: 0.3s;
+            margin: 0 15px;
+        }
+        .menu a:hover {
+            color: #0088cc;
+        }
+        .profile-container {
+            width: 90%;
+            max-width: 1200px;
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+        .welcome-card {
+            background: rgba(0, 0, 51, 0.8);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0px 0px 20px #00aaff;
+            backdrop-filter: blur(10px);
+            text-align: left;
+        }
+        .welcome-title {
+            font-size: 36px;
+            margin-bottom: 10px;
+            color: #00ccff;
+            text-shadow: 0 0 10px #00aaff;
+        }
+        .welcome-message {
+            font-size: 18px;
+            line-height: 1.6;
+        }
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+        .stat-card {
+            background: rgba(0, 0, 51, 0.8);
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0px 0px 15px #00aaff;
+            transition: transform 0.3s;
+        }
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0px 0px 25px #00ccff;
+        }
+        .stat-title {
+            font-size: 22px;
+            color: #00ccff;
+            margin-bottom: 15px;
+            border-bottom: 1px solid #00aaff;
+            padding-bottom: 10px;
+        }
+        .stat-value {
+            font-size: 28px;
+            margin: 15px 0;
+            color: #00ffaa;
+        }
+        .stat-description {
+            font-size: 16px;
+            opacity: 0.9;
+        }
+        .graph {
+            height: 200px;
+            margin: 20px 0;
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-around;
+            gap: 10px;
+        }
+        .bar {
+            flex: 1;
+            background: linear-gradient(to top, #00aaff, #00ccff);
+            border-radius: 5px 5px 0 0;
+            position: relative;
+            min-width: 30px;
+            transition: height 1s ease-out;
+        }
+        .bar-label {
+            position: absolute;
+            bottom: -25px;
+            width: 100%;
+            text-align: center;
+            font-size: 12px;
+        }
+        .bar-value {
+            position: absolute;
+            top: -25px;
+            width: 100%;
+            text-align: center;
+            font-size: 12px;
+            color: #00ffaa;
+        }
+        .info-card {
+            background: rgba(0, 0, 51, 0.8);
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0px 0px 15px #00aaff;
+            text-align: left;
+        }
+        .info-title {
+            font-size: 24px;
+            color: #00ccff;
+            margin-bottom: 20px;
+            border-bottom: 1px solid #00aaff;
+            padding-bottom: 10px;
+        }
+        .info-item {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+        .info-label {
+            width: 150px;
+            font-weight: bold;
+            color: #00ffaa;
+        }
+        .info-value {
+            flex: 1;
+            word-break: break-all;
+        }
+        .api-key {
+            background: rgba(0, 51, 102, 0.5);
+            padding: 10px;
+            border-radius: 5px;
+            font-family: monospace;
+            display: inline-block;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .api-key:hover {
+            background: rgba(0, 51, 102, 0.8);
+            box-shadow: 0 0 10px #00aaff;
+        }
+        .plan-badge {
+            display: inline-block;
+            padding: 5px 15px;
+            border-radius: 20px;
+            background: #00aaff;
+            color: #001f3f;
+            font-weight: bold;
+            text-transform: uppercase;
+            font-size: 14px;
+        }
+        .plan-pro {
+            background: linear-gradient(to right, #00aaff, #00ffaa);
+        }
+        .dark-mode-btn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 40px;
+            height: 40px;
+            background: #00aaff;
+            border-radius: 50%;
+            border: none;
+            cursor: pointer;
+            transition: 0.3s;
+            z-index: 100;
+        }
+        .dark-mode-btn:hover {
+            background: #0088cc;
+            box-shadow: 0 0 10px #00aaff;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <div class="menu">
+            <a href="Jarvis Webpage.html">Home</a>
+            <a href="about-me.html">About</a>
+            <a href="pricing.html">Pricing</a>
+        </div>
+    </div>
+
+    <div class="profile-container">
+        <!-- Welcome Card -->
+        <div class="welcome-card">
+            <h1 class="welcome-title">Welcome back, Tony Stark!</h1>
+            <p class="welcome-message">
+                It's great to see you again. Your AI systems are running optimally with 99.9% uptime. 
+                Since your last login, Jarvis has processed 47 new requests and learned 3 new patterns 
+                from your interactions. Your productivity score is 8% higher than last week - keep it up!
+            </p>
+        </div>
+
+        <!-- Stats Grid -->
+        <div class="stats-grid">
+            <!-- Usage Time -->
+            <div class="stat-card">
+                <h2 class="stat-title">Total Usage Time</h2>
+                <div class="stat-value">127.5 hours</div>
+                <div class="stat-description">Across all devices since account creation</div>
+                <div class="graph">
+                    <div class="bar" style="height: 70%;">
+                        <span class="bar-value">70%</span>
+                        <span class="bar-label">This Week</span>
+                    </div>
+                    <div class="bar" style="height: 45%;">
+                        <span class="bar-value">45%</span>
+                        <span class="bar-label">Last Week</span>
+                    </div>
+                    <div class="bar" style="height: 60%;">
+                        <span class="bar-value">60%</span>
+                        <span class="bar-label">Month Avg</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- AI Model Usage -->
+            <div class="stat-card">
+                <h2 class="stat-title">AI Model Distribution</h2>
+                <div class="stat-value">Multi-Model</div>
+                <div class="stat-description">Your usage across different AI models</div>
+                <div class="graph">
+                    <div class="bar" style="height: 85%; background: linear-gradient(to top, #00aaff, #0066ff);">
+                        <span class="bar-value">85%</span>
+                        <span class="bar-label">GPT-4</span>
+                    </div>
+                    <div class="bar" style="height: 45%; background: linear-gradient(to top, #00aaff, #0099ff);">
+                        <span class="bar-value">45%</span>
+                        <span class="bar-label">Claude 3</span>
+                    </div>
+                    <div class="bar" style="height: 30%; background: linear-gradient(to top, #00aaff, #00ccff);">
+                        <span class="bar-value">30%</span>
+                        <span class="bar-label">Llama 3</span>
+                    </div>
+                    <div class="bar" style="height: 15%; background: linear-gradient(to top, #00aaff, #00ddff);">
+                        <span class="bar-value">15%</span>
+                        <span class="bar-label">Other</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- API Usage -->
+            <div class="stat-card">
+                <h2 class="stat-title">API Usage</h2>
+                <div class="stat-value">2,847 calls</div>
+                <div class="stat-description">This billing cycle (resets in 12 days)</div>
+                <div class="graph">
+                    <div class="bar" style="height: 90%; background: linear-gradient(to top, #00ffaa, #00cc88);">
+                        <span class="bar-value">90%</span>
+                        <span class="bar-label">Success</span>
+                    </div>
+                    <div class="bar" style="height: 7%; background: linear-gradient(to top, #ffaa00, #ff8800);">
+                        <span class="bar-value">7%</span>
+                        <span class="bar-label">Limit</span>
+                    </div>
+                    <div class="bar" style="height: 3%; background: linear-gradient(to top, #ff3333, #cc0000);">
+                        <span class="bar-value">3%</span>
+                        <span class="bar-label">Errors</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Account Information -->
+        <div class="info-card">
+            <h2 class="info-title">Account Information</h2>
+            <div class="info-item">
+                <div class="info-label">Subscription Plan:</div>
+                <div class="info-value"><span class="plan-badge plan-pro">Pro Tier</span></div>
+            </div>
+            <div class="info-item">
+                <div class="info-label">API Key:</div>
+                <div class="info-value">
+                    <span class="api-key" onclick="navigator.clipboard.writeText('JARVIS-API-KEY-7X9P-2R4Q-1T6W-8Y3U')">JARVIS-API-KEY-7X9P-2R4Q-1T6W-8Y3U</span>
+                    <small> (click to copy)</small>
+                </div>
+            </div>
+            <div class="info-item">
+                <div class="info-label">Billing Cycle:</div>
+                <div class="info-value">Monthly - Next charge: $29.99 on June 15</div>
+            </div>
+        </div>
+
+        <!-- Personal Information -->
+        <div class="info-card">
+            <h2 class="info-title">Personal Information</h2>
+            <div class="info-item">
+                <div class="info-label">Email:</div>
+                <div class="info-value">tony.stark@starkindustries.com</div>
+            </div>
+            <div class="info-item">
+                <div class="info-label">Phone:</div>
+                <div class="info-value">+1 (212) 970-4133</div>
+            </div>
+            <div class="info-item">
+                <div class="info-label">Address:</div>
+                <div class="info-value">
+                    10880 Malibu Point, <br>
+                    Malibu, CA 90265, <br>
+                    United States
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <button class="dark-mode-btn" onclick="toggleDarkMode()"></button>
+
+    <script>
+        // Dark mode toggle
+        function toggleDarkMode() {
+            document.body.classList.toggle('dark-mode');
+        }
+
+        // Animate bars on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            const bars = document.querySelectorAll('.bar');
+            bars.forEach(bar => {
+                const height = bar.style.height;
+                bar.style.height = '0';
+                setTimeout(() => {
+                    bar.style.height = height;
+                }, 100);
+            });
+        });
+    </script>
+</body>
+</html>
